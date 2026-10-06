@@ -1,0 +1,10 @@
+{
+  "name": "cortexus-review1",
+  "version": "1.0.0",
+  "description": "CORTEXUS Patient Review Generator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}
