@@ -84,16 +84,32 @@ function generateReview(problem, selectedExperiences, language) {
 
   if (language === "hi") {
 
-    return `Maine CORTEXUS se ${problem} ke liye physiotherapy li. ${lines.join(
-      ". "
-    )}. Overall mera experience achha raha aur mujhe proper guidance mili.`;
+    const openings = [
+      `CORTEXUS mein ${problem} ke liye mera experience achha raha.`,
+      `${problem} ke treatment ke liye CORTEXUS ke saath mera experience positive raha.`,
+      `CORTEXUS ki physiotherapy service se ${problem} ke treatment mein mujhe achha experience mila.`,
+      `Mere ${problem} ke treatment ke dauran CORTEXUS ka experience helpful raha.`
+    ];
+
+    const opening =
+      openings[Math.floor(Math.random() * openings.length)];
+
+    return `${opening} ${lines.join(". ")}. Overall, mujhe treatment aur guidance achhi lagi.`;
   }
 
-  return `I took physiotherapy from CORTEXUS for ${problem}. ${lines.join(
-    ". "
-  )}. Overall, my experience was good and I received proper guidance.`;
-}
+  const openings = [
+    `I had a good experience with CORTEXUS for ${problem}.`,
+    `My experience with CORTEXUS for ${problem} was positive.`,
+    `CORTEXUS provided a good physiotherapy experience for my ${problem}.`,
+    `I was happy with my physiotherapy experience at CORTEXUS for ${problem}.`,
+    `The physiotherapy experience at CORTEXUS for ${problem} was helpful.`
+  ];
 
+  const opening =
+    openings[Math.floor(Math.random() * openings.length)];
+
+  return `${opening} ${lines.join(". ")}. Overall, I was satisfied with the treatment and guidance.`;
+}
 function sendJSON(res, status, data) {
 
   res.writeHead(status, {
