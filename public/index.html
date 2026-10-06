@@ -1,1 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORTEXUS - Patient Review</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      color: #1f2933;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    .logo-box {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      width: 150px;
+      max-width: 70%;
+      height: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 8px 0;
+      font-size: 26px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #667085;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .step {
+      margin-bottom: 24px;
+    }
+
+    .step-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .language-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-buttons button {
+      flex: 1;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid #d0d5dd;
+      background: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .language-buttons button.active {
+      background: #111827;
+      color: white;
+    }
+
+    .main-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 11px;
+      background: #111827;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .review-box {
+      display: none;
+      margin-top: 25px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      padding: 15px;
+      border: 1px solid #d0d5dd;
+      border-radius: 12px;
+      font-size: 16px;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .action-buttons {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .copy-button,
+    .google-button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .copy-button {
+      border: 1px solid #111827;
+      background: white;
+    }
+
+    .google-button {
+      border: none;
+      background: #111827;
+      color: white;
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #667085;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="logo-box">
+      <img src="/cortexus-logo.png" class="logo" alt="CORTEXUS">
+    </div>
+
+    <h1>Share Your Experience</h1>
+
+    <div class="subtitle">
+      Tell us about your physiotherapy experience with CORTEXUS.
+    </div>
+
+    <div class="step">
+      <div class="step-title">1. What treatment did you take?</div>
+
+      <select id="problem">
+        <option value="">Select your treatment</option>
+        <option>Back Pain Treatment</option>
+        <option>Neck Pain Treatment</option>
+        <option>Knee Pain Treatment</option>
+        <option>Sciatica Treatment</option>
+        <option>Frozen Shoulder Treatment</option>
+        <option>Stroke Rehabilitation</option>
+        <option>Paralysis Rehabilitation</option>
+        <option>Post Surgery Rehabilitation</option>
+        <option>Neurological Physiotherapy</option>
+        <option>Orthopedic Physiotherapy</option>
+        <option>Sports Injury Rehabilitation</option>
+        <option>Elderly Care Physiotherapy</option>
+      </select>
+    </div>
+
+    <div class="step">
+      <div class="step-title">2. What did you experience?</div>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="checkbox" value="improvement">
+          I noticed improvement in my condition
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="movement">
+          My movement became better
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="pain">
+          My pain or discomfort improved
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="explanation">
+          Exercises were explained clearly
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="professional">
+          The treatment felt professional
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="communication">
+          Communication was good
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="patient">
+          The therapist was patient and supportive
+        </label>
+
+        <label class="option">
+          <input type="checkbox" value="guidance">
+          I received proper guidance during exercises
+        </label>
+
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title">3. Choose language</div>
+
+      <div class="language-buttons">
+        <button id="englishBtn" class="active" onclick="selectLanguage('en')">
+          English
+        </button>
+
+        <button id="hinglishBtn" onclick="selectLanguage('hi')">
+          Hinglish
+        </button>
+      </div>
+    </div>
+
+    <button class="main-button" onclick="generateReview()">
+      Generate My Review
+    </button>
+
+    <div class="review-box" id="reviewBox">
+
+      <div class="step-title">
+        Your Review Draft
+      </div>
+
+      <textarea id="reviewText" readonly></textarea>
+
+      <div class="action-buttons">
+
+        <button class="copy-button" onclick="copyReview()">
+          Copy Review
+        </button>
+
+        <button class="google-button" onclick="openGoogleReview()">
+          Open Google Review
+        </button>
+
+      </div>
+
+      <div class="note">
+        Please read the review and make sure it accurately reflects your own experience before posting it on Google.
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+let selectedLanguage = "en";
+
+const GOOGLE_REVIEW_URL =
+"https://g.page/r/CRDpyce9iCusEBM/review";
+
+
+function selectLanguage(language) {
+
+  selectedLanguage = language;
+
+  document.getElementById("englishBtn")
+    .classList.remove("active");
+
+  document.getElementById("hinglishBtn")
+    .classList.remove("active");
+
+  if (language === "en") {
+
+    document.getElementById("englishBtn")
+      .classList.add("active");
+
+  } else {
+
+    document.getElementById("hinglishBtn")
+      .classList.add("active");
+
+  }
+}
+
+
+async function generateReview() {
+
+  const problem =
+    document.getElementById("problem").value;
+
+  if (!problem) {
+
+    alert("Please select your treatment first.");
+    return;
+
+  }
+
+  const selected =
+    Array.from(
+      document.querySelectorAll(
+        '.option input:checked'
+      )
+    ).map(
+      checkbox => checkbox.value
+    );
+
+  if (selected.length === 0) {
+
+    alert("Please select at least one experience.");
+    return;
+
+  }
+
+  try {
+
+    const response = await fetch(
+      "/api/generate",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          problem: problem,
+          experiences: selected,
+          language: selectedLanguage
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+
+      alert(
+        data.error ||
+        "Unable to generate review."
+      );
+
+      return;
+    }
+
+    document.getElementById("reviewText").value =
+      data.review;
+
+    document.getElementById("reviewBox").style.display =
+      "block";
+
+    document.getElementById("reviewBox")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  } catch (error) {
+
+    alert(
+      "Server se connection nahi ho pa raha."
+    );
+
+  }
+}
+
+
+async function copyReview() {
+
+  const review =
+    document.getElementById("reviewText").value;
+
+  if (!review) return;
+
+  try {
+
+    await navigator.clipboard.writeText(review);
+
+    alert("Review copied.");
+
+  } catch (error) {
+
+    const textarea =
+      document.getElementById("reviewText");
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    alert("Review copied.");
+
+  }
+}
+
+
+function openGoogleReview() {
+
+  window.open(
+    GOOGLE_REVIEW_URL,
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
